@@ -1,5 +1,5 @@
-from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+
 from produtos.models import Produto
 from produtos.serializers import ProdutoSerializer
 
