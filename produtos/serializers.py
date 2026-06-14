@@ -21,32 +21,25 @@ from produtos.models import Produto
 class ProdutoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Produto
-        fields = ["nome", "descricao", "preco", "ativo", "criado_em", "atualizado_em"]
+        fields = ["id", "nome", "descricao", "preco", "ativo", "criado_em", "atualizado_em"]
         read_only_fields = ["criado_em", "atualizado_em"]
         extra_kwargs = {
             "nome": {
                 "error_messages": {
                     "blank": 'O nome do produto não pode ser vazio',
+                    "required": 'O nome do produto é obrigatorio',
+                    "max_length": 'O nome do produto não pode ultrapassar 100 caracteres'
+                }
+            },
+            "descricao": {
+                "error_messages": {
+                    "max_length": 'A descrição do produto não pode ultrapassar 1000 caracteres'
+                }
+            },
+            "preco": {
+                "error_messages": {
+                    "blank": 'O preço do produto não pode ser vazio',
+                    "required": 'O preço do produto é obrigatorio',
                 }
             }
         }
-
-
-def validate_preco(self, value):
-    pass
-
-
-def validate_descricao(self, value):
-    pass
-
-
-def validate_ativo(self, value):
-    pass
-
-
-def validate_criado_em(self, value):
-    pass
-
-
-def validate_atualizado_em(self, value):
-    pass
