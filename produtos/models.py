@@ -11,7 +11,7 @@ class Produto(models.Model):
         max_digits=10,
         decimal_places=2,
         blank=False,
-        validators=[MinValueValidator(Decimal('0.01'))],
+        validators=[MinValueValidator(Decimal("0.01"))],
     )
     ativo = models.BooleanField(default=True)
     criado_em = models.DateTimeField(auto_now_add=True)
